@@ -10,9 +10,6 @@ export default function Home() {
 
       <div className="relative mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-7xl flex-col">
         <header className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 inline-flex rounded-full border border-white/70 bg-white/60 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#7a72ab] shadow-[0_10px_30px_rgba(130,113,194,0.15)]">
-            Easter Surprise
-          </p>
           <h1 className="text-4xl font-semibold tracking-tight text-[#4c426e] md:text-6xl">
             Easter Chocolate Hunt
           </h1>
