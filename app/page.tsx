@@ -11,7 +11,7 @@ export default function Home() {
       <div className="relative mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-7xl flex-col">
         <header className="mx-auto max-w-3xl text-center">
           <h1 className="text-4xl font-semibold tracking-tight text-[#4c426e] md:text-6xl">
-            Easter Chocolate Hunt
+            Easter Treasure Hunt
           </h1>
           <p className="mt-6 text-lg font-medium text-[#675d8e] md:text-xl">
             Find the six passwords to unlock six clues.

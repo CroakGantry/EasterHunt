@@ -3,7 +3,7 @@ import { cleanup, render, screen, within } from "@testing-library/react";
 import Home from "@/app/page";
 import { clues } from "@/lib/clues";
 
-describe("Easter Chocolate Hunt page", () => {
+describe("Easter Treasure Hunt page", () => {
   afterEach(() => {
     localStorage.clear();
     cleanup();
@@ -13,7 +13,7 @@ describe("Easter Chocolate Hunt page", () => {
     render(<Home />);
 
     expect(
-      screen.getByRole("heading", { name: "Easter Chocolate Hunt" })
+      screen.getByRole("heading", { name: "Easter Treasure Hunt" })
     ).toBeInTheDocument();
     expect(
       screen.getByText("Find the six passwords to unlock six clues.")

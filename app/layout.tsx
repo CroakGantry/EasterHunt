@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Easter Chocolate Hunt",
+  title: "Easter Treasure Hunt",
   description: "Unlock six Easter clue cards to reveal hidden video messages.",
 };
 
