@@ -32,7 +32,7 @@ export function ClueCard({
       <div className={`card-rotator ${isUnlocked ? "is-unlocked" : ""}`}>
         <div
           aria-hidden={isUnlocked}
-          className="card-face rounded-[2rem] border border-white/70 bg-white/65 p-6 backdrop-blur-sm"
+          className="card-face rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(241,235,255,0.95),rgba(219,232,255,0.95))] p-6 backdrop-blur-sm"
         >
           {!isUnlocked ? (
             <>
