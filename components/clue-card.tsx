@@ -90,9 +90,6 @@ export function ClueCard({
               <CardHeader title={clue.title} />
 
               <div className="mt-4 flex h-full flex-col rounded-[1.75rem] bg-white/70 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_16px_30px_rgba(105,94,156,0.12)]">
-                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#8f8ac0]">
-                  Video clue for {clue.title}
-                </p>
                 <video
                   className="mt-4 aspect-video w-full rounded-[1.25rem] bg-[#cbdcf1] object-cover shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
                   src={clue.videoSrc}
