@@ -79,7 +79,7 @@ export function ClueCard({
             <>
               <CardHeader title={clue.title} />
 
-              <div className="mt-4 flex flex-1 items-center justify-center rounded-[1.75rem] bg-white/70 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_16px_30px_rgba(105,94,156,0.12)]">
+              <div className="flex flex-1 items-center justify-center rounded-[1.75rem] bg-white/70 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_16px_30px_rgba(105,94,156,0.12)]">
                 <video
                   className="h-full w-full rounded-[1.25rem] bg-[#cbdcf1] object-cover shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
                   src={clue.videoSrc}
@@ -100,7 +100,7 @@ export function ClueCard({
 
 function CardHeader({ title }: { title: string }) {
   return (
-    <div className="mb-8 flex items-start justify-between gap-4">
+    <div className="mb-4 flex items-start justify-between gap-4">
       <div>
         <h2 className="text-2xl font-semibold text-[#554a7c]">{title}</h2>
       </div>

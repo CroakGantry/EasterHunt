@@ -24,9 +24,9 @@ export default function Home() {
           </p>
         </header>
 
-        <section className="relative mt-12 rounded-[2.5rem] border border-white/75 bg-white/35 p-5 shadow-[0_28px_70px_rgba(90,80,143,0.18),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur md:p-8">
+        <div className="mt-12">
           <HuntBoard />
-        </section>
+        </div>
       </div>
     </main>
   );
