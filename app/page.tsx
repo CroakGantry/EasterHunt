@@ -10,23 +10,20 @@ export default function Home() {
 
       <div className="relative mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-7xl flex-col">
         <header className="mx-auto max-w-3xl text-center">
-          <p className="mb-4 inline-flex rounded-full border border-white/70 bg-white/60 px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#7a72ab] shadow-[0_10px_30px_rgba(130,113,194,0.15)]">
-            Easter Surprise
-          </p>
           <h1 className="text-4xl font-semibold tracking-tight text-[#4c426e] md:text-6xl">
-            Easter Chocolate Hunt
+            Easter Treasure Hunt
           </h1>
           <p className="mt-6 text-lg font-medium text-[#675d8e] md:text-xl">
-            Find the six passwords to unlock six clues.
+            Find six passwords to unlock six clues.
           </p>
           <p className="mt-2 text-lg font-medium text-[#675d8e] md:text-xl">
-            Find them all and you will be rewarded with a magnificent prize!
+            Find them all to be rewarded with a magnificent prize!
           </p>
         </header>
 
-        <section className="relative mt-12 rounded-[2.5rem] border border-white/75 bg-white/35 p-5 shadow-[0_28px_70px_rgba(90,80,143,0.18),inset_0_1px_0_rgba(255,255,255,0.95)] backdrop-blur md:p-8">
+        <div className="mt-12">
           <HuntBoard />
-        </section>
+        </div>
       </div>
     </main>
   );

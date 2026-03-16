@@ -3,7 +3,7 @@ import { cleanup, render, screen, within } from "@testing-library/react";
 import Home from "@/app/page";
 import { clues } from "@/lib/clues";
 
-describe("Easter Chocolate Hunt page", () => {
+describe("Easter Treasure Hunt page", () => {
   afterEach(() => {
     localStorage.clear();
     cleanup();
@@ -13,7 +13,7 @@ describe("Easter Chocolate Hunt page", () => {
     render(<Home />);
 
     expect(
-      screen.getByRole("heading", { name: "Easter Chocolate Hunt" })
+      screen.getByRole("heading", { name: "Easter Treasure Hunt" })
     ).toBeInTheDocument();
     expect(
       screen.getByText("Find the six passwords to unlock six clues.")
@@ -33,8 +33,10 @@ describe("Easter Chocolate Hunt page", () => {
       expect(card).not.toBeNull();
 
       const scopedQueries = within(card as HTMLElement);
-      expect(scopedQueries.getByLabelText(/password/i)).toBeInTheDocument();
-      expect(scopedQueries.queryByText(/video clue/i)).not.toBeInTheDocument();
+      expect(
+        scopedQueries.getByPlaceholderText("Enter password")
+      ).toBeInTheDocument();
+      expect(card?.querySelector("video")).toBeNull();
     }
   });
 
@@ -52,8 +54,9 @@ describe("Easter Chocolate Hunt page", () => {
     expect(clueOneCard).not.toBeNull();
 
     const scopedQueries = within(clueOneCard as HTMLElement);
-    expect(scopedQueries.queryByLabelText(/password/i)).not.toBeInTheDocument();
-    expect(scopedQueries.getByText(/video clue for clue 1/i)).toBeInTheDocument();
+    expect(
+      scopedQueries.queryByPlaceholderText("Enter password")
+    ).not.toBeInTheDocument();
 
     const videoElement = clueOneCard?.querySelector("video");
     expect(videoElement).not.toBeNull();
@@ -73,16 +76,14 @@ describe("Easter Chocolate Hunt page", () => {
 
     const scopedQueries = within(clueOneCard as HTMLElement);
 
-    await user.type(
-      scopedQueries.getByLabelText("Password for Clue 1"),
-      clues[0].password
-    );
+    await user.type(scopedQueries.getByPlaceholderText("Enter password"), clues[0].password);
     await user.click(
       scopedQueries.getByRole("button", { name: "Unlock Clue 1" })
     );
 
-    expect(scopedQueries.queryByLabelText(/password/i)).not.toBeInTheDocument();
-    expect(scopedQueries.getByText(/video clue for clue 1/i)).toBeInTheDocument();
+    expect(
+      scopedQueries.queryByPlaceholderText("Enter password")
+    ).not.toBeInTheDocument();
     expect(localStorage.getItem("easter-hunt-unlocked-cards")).toBe(
       JSON.stringify(["clue-1"])
     );
@@ -105,12 +106,14 @@ describe("Easter Chocolate Hunt page", () => {
 
     const scopedQueries = within(clueTwoCard as HTMLElement);
 
-    await user.type(scopedQueries.getByLabelText("Password for Clue 2"), "wrong");
+    await user.type(scopedQueries.getByPlaceholderText("Enter password"), "wrong");
     await user.click(
       scopedQueries.getByRole("button", { name: "Unlock Clue 2" })
     );
 
-    expect(scopedQueries.getByLabelText("Password for Clue 2")).toBeInTheDocument();
+    expect(
+      scopedQueries.getByPlaceholderText("Enter password")
+    ).toBeInTheDocument();
     expect(
       scopedQueries.getByText("That password is not quite right yet.")
     ).toBeInTheDocument();
