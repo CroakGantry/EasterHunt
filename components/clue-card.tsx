@@ -102,10 +102,6 @@ export function ClueCard({
                 >
                   Your browser does not support this clue video.
                 </video>
-                <p className="mt-4 text-sm leading-6 text-[#6d648f]">
-                  Replace <span className="font-mono">{clue.videoSrc}</span>{" "}
-                  with your clue clip whenever you are ready.
-                </p>
               </div>
             </>
           ) : null}
