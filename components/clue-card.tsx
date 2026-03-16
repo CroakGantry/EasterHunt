@@ -1,6 +1,6 @@
 "use client";
 
-import { type FormEvent } from "react";
+import { type FormEvent, type ReactNode } from "react";
 import type { ClueDefinition } from "@/lib/clues";
 
 type ClueCardProps = {
@@ -35,39 +35,39 @@ export function ClueCard({
           className="card-face rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(241,235,255,0.95),rgba(219,232,255,0.95))] p-6 backdrop-blur-sm"
         >
           {!isUnlocked ? (
-            <>
-              <CardHeader title={clue.title} />
-
-              <form
-                className="flex flex-1 flex-col items-center justify-center"
-                onSubmit={handleSubmit}
-              >
-                <input
-                  id={inputId}
-                  type="text"
-                  value={inputValue}
-                  onChange={(event) => {
-                    onInputChange(event.target.value);
-                  }}
-                  className="w-full rounded-2xl border border-[#d7cff5] bg-white/90 px-4 py-3 text-center text-base text-[#463d6a] outline-none transition focus:border-[#9f8ef0] focus:ring-4 focus:ring-[#c7bef8]/70"
-                  placeholder="Enter password"
-                  autoComplete="off"
-                />
-
-                <button
-                  type="submit"
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#8c7bd9,#6d5ac1)] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(105,94,156,0.28)] transition hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-[#c7bef8]/70"
+            <CardFaceLayout faceTestId="locked-face-layout" title={clue.title}>
+              <div className="flex h-full items-center justify-center">
+                <form
+                  className="w-full max-w-[17rem]"
+                  onSubmit={handleSubmit}
                 >
-                  Unlock {clue.title}
-                </button>
+                  <input
+                    id={inputId}
+                    type="text"
+                    value={inputValue}
+                    onChange={(event) => {
+                      onInputChange(event.target.value);
+                    }}
+                    className="w-full rounded-2xl border border-[#d7cff5] bg-white/90 px-4 py-3 text-center text-base text-[#463d6a] outline-none transition focus:border-[#9f8ef0] focus:ring-4 focus:ring-[#c7bef8]/70"
+                    placeholder="Enter password"
+                    autoComplete="off"
+                  />
 
-                {errorMessage ? (
-                  <p className="mt-4 text-center text-sm font-medium text-[#a64f7c]">
-                    {errorMessage}
-                  </p>
-                ) : null}
-              </form>
-            </>
+                  <button
+                    type="submit"
+                    className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#8c7bd9,#6d5ac1)] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(105,94,156,0.28)] transition hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-[#c7bef8]/70"
+                  >
+                    Unlock {clue.title}
+                  </button>
+
+                  {errorMessage ? (
+                    <p className="mt-4 text-center text-sm font-medium text-[#a64f7c]">
+                      {errorMessage}
+                    </p>
+                  ) : null}
+                </form>
+              </div>
+            </CardFaceLayout>
           ) : null}
         </div>
 
@@ -76,21 +76,21 @@ export function ClueCard({
           className="card-face card-face-back flex flex-col rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(241,235,255,0.95),rgba(219,232,255,0.95))] p-6 backdrop-blur-sm"
         >
           {isUnlocked ? (
-            <>
-              <CardHeader title={clue.title} />
-
-              <div className="flex flex-1 items-center justify-center rounded-[1.75rem] bg-white/70 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_16px_30px_rgba(105,94,156,0.12)]">
-                <video
-                  className="h-full w-full rounded-[1.25rem] bg-[#cbdcf1] object-cover shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
-                  src={clue.videoSrc}
-                  controls
-                  playsInline
-                  preload="metadata"
-                >
-                  Your browser does not support this clue video.
-                </video>
+            <CardFaceLayout faceTestId="unlocked-face-layout" title={clue.title}>
+              <div className="flex h-full items-center justify-center">
+                <div className="aspect-square w-full max-w-[17rem] rounded-[1.75rem] bg-white/70 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_16px_30px_rgba(105,94,156,0.12)]">
+                  <video
+                    className="h-full w-full rounded-[1.25rem] bg-[#cbdcf1] object-cover shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
+                    src={clue.videoSrc}
+                    controls
+                    playsInline
+                    preload="metadata"
+                  >
+                    Your browser does not support this clue video.
+                  </video>
+                </div>
               </div>
-            </>
+            </CardFaceLayout>
           ) : null}
         </div>
       </div>
@@ -98,9 +98,34 @@ export function ClueCard({
   );
 }
 
+function CardFaceLayout({
+  children,
+  faceTestId,
+  title,
+}: {
+  children: ReactNode;
+  faceTestId: string;
+  title: string;
+}) {
+  return (
+    <div
+      className="grid h-full min-h-0 grid-rows-[auto_1fr] gap-4"
+      data-testid={faceTestId}
+    >
+      <CardHeader title={title} />
+      <div className="min-h-0" data-testid="card-body">
+        {children}
+      </div>
+    </div>
+  );
+}
+
 function CardHeader({ title }: { title: string }) {
   return (
-    <div className="mb-4 flex items-start justify-between gap-4">
+    <div
+      className="flex items-start justify-between gap-4"
+      data-testid="card-header-row"
+    >
       <div>
         <h2 className="text-2xl font-semibold text-[#554a7c]">{title}</h2>
       </div>
