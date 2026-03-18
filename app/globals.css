@@ -58,3 +58,8 @@ body {
 .card-face-back {
   transform: rotateY(180deg);
 }
+
+.video-clip {
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
