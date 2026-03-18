@@ -60,6 +60,16 @@ body {
 }
 
 .video-clip {
+  position: relative;
+  z-index: 0;
   overflow: hidden;
+  isolation: isolate;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.video-clip video {
+  -webkit-clip-path: inset(0 round 1.25rem);
+  clip-path: inset(0 round 1.25rem);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
