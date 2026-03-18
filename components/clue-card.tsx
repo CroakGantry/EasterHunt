@@ -78,17 +78,15 @@ export function ClueCard({
           {isUnlocked ? (
             <CardFaceLayout faceTestId="unlocked-face-layout" title={clue.title}>
               <div className="flex h-full items-center justify-center">
-                <div className="aspect-square w-full max-w-[17rem] rounded-[1.75rem] bg-white/70 p-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.95),0_16px_30px_rgba(105,94,156,0.12)]">
-                  <video
-                    className="h-full w-full rounded-[1.25rem] bg-[#cbdcf1] object-cover shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
-                    src={clue.videoSrc}
-                    controls
-                    playsInline
-                    preload="metadata"
-                  >
-                    Your browser does not support this clue video.
-                  </video>
-                </div>
+                <video
+                  className="aspect-square w-full max-w-[17rem] rounded-[1.25rem] bg-[#cbdcf1] object-contain shadow-[inset_0_0_0_1px_rgba(255,255,255,0.8)]"
+                  src={clue.videoSrc}
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  Your browser does not support this clue video.
+                </video>
               </div>
             </CardFaceLayout>
           ) : null}
