@@ -42,4 +42,22 @@ export const clues: ClueDefinition[] = [
     password: "golden-egg",
     videoSrc: "/videos/clue-6.mp4",
   },
+  {
+    id: "clue-7",
+    title: "Clue 7",
+    password: "jelly-bean",
+    videoSrc: "/videos/clue-7.mp4",
+  },
+  {
+    id: "clue-8",
+    title: "Clue 8",
+    password: "tulip-garden",
+    videoSrc: "/videos/clue-8.mp4",
+  },
+  {
+    id: "clue-9",
+    title: "Clue 9",
+    password: "marshmallow-peep",
+    videoSrc: "/videos/clue-9.mp4",
+  },
 ];
