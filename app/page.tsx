@@ -14,7 +14,7 @@ export default function Home() {
             Easter Treasure Hunt
           </h1>
           <p className="mt-6 text-lg font-medium text-[#675d8e] md:text-xl">
-            Find six passwords to unlock six clues.
+            Find nine passwords to unlock nine clues.
           </p>
           <p className="mt-2 text-lg font-medium text-[#675d8e] md:text-xl">
             Find them all to be rewarded with a magnificent prize!

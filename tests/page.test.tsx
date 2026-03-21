@@ -9,23 +9,23 @@ describe("Easter Treasure Hunt page", () => {
     cleanup();
   });
 
-  it("renders the heading, subheadings, and six locked clue cards", () => {
+  it("renders the heading, subheadings, and nine locked clue cards", () => {
     render(<Home />);
 
     expect(
       screen.getByRole("heading", { name: "Easter Treasure Hunt" })
     ).toBeInTheDocument();
     expect(
-      screen.getByText("Find the six passwords to unlock six clues.")
+      screen.getByText("Find nine passwords to unlock nine clues.")
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Find them all and you will be rewarded with a magnificent prize!"
+        "Find them all to be rewarded with a magnificent prize!"
       )
     ).toBeInTheDocument();
 
     const clueHeadings = screen.getAllByRole("heading", { name: /Clue \d/i });
-    expect(clueHeadings).toHaveLength(6);
+    expect(clueHeadings).toHaveLength(9);
 
     for (const heading of clueHeadings) {
       const card = heading.closest("section");
@@ -42,7 +42,7 @@ describe("Easter Treasure Hunt page", () => {
 
   it("restores unlocked cards from localStorage on first render", () => {
     localStorage.setItem(
-      "easter-hunt-unlocked-cards",
+      "easter-hunt-unlocked-cards-v2",
       JSON.stringify(["clue-1"])
     );
 
@@ -84,7 +84,7 @@ describe("Easter Treasure Hunt page", () => {
     expect(
       scopedQueries.queryByPlaceholderText("Enter password")
     ).not.toBeInTheDocument();
-    expect(localStorage.getItem("easter-hunt-unlocked-cards")).toBe(
+    expect(localStorage.getItem("easter-hunt-unlocked-cards-v2")).toBe(
       JSON.stringify(["clue-1"])
     );
 
@@ -117,6 +117,6 @@ describe("Easter Treasure Hunt page", () => {
     expect(
       scopedQueries.getByText("That password is not quite right yet.")
     ).toBeInTheDocument();
-    expect(localStorage.getItem("easter-hunt-unlocked-cards")).toBeNull();
+    expect(localStorage.getItem("easter-hunt-unlocked-cards-v2")).toBeNull();
   });
 });
