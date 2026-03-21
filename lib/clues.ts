@@ -9,37 +9,37 @@ export const clues: ClueDefinition[] = [
   {
     id: "clue-1",
     title: "Clue 1",
-    password: "chocolate-bunny",
+    password: "daffodil-bloom",
     videoSrc: "/videos/clue-1.mp4",
   },
   {
     id: "clue-2",
     title: "Clue 2",
-    password: "pastel-eggs",
+    password: "buttercup-hill",
     videoSrc: "/videos/clue-2.mp4",
   },
   {
     id: "clue-3",
     title: "Clue 3",
-    password: "carrot-cake",
+    password: "rainbow-sprinkle",
     videoSrc: "/videos/clue-3.mp4",
   },
   {
     id: "clue-4",
     title: "Clue 4",
-    password: "spring-meadow",
+    password: "bluebell-glen",
     videoSrc: "/videos/clue-4.mp4",
   },
   {
     id: "clue-5",
     title: "Clue 5",
-    password: "lilac-dream",
+    password: "sunrise-orchard",
     videoSrc: "/videos/clue-5.mp4",
   },
   {
     id: "clue-6",
     title: "Clue 6",
-    password: "golden-egg",
+    password: "lambkin-field",
     videoSrc: "/videos/clue-6.mp4",
   },
   {

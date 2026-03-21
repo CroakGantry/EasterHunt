@@ -4,7 +4,7 @@ import { useState, useSyncExternalStore } from "react";
 import { ClueCard } from "@/components/clue-card";
 import { clues } from "@/lib/clues";
 
-const STORAGE_KEY = "easter-hunt-unlocked-cards";
+const STORAGE_KEY = "easter-hunt-unlocked-cards-v2";
 const STORAGE_EVENT = "easter-hunt-storage-change";
 
 function parseUnlockedIdsSnapshot(snapshot: string) {
