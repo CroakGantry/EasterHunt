@@ -42,7 +42,7 @@ describe("Easter Treasure Hunt page", () => {
 
   it("restores unlocked cards from localStorage on first render", () => {
     localStorage.setItem(
-      "easter-hunt-unlocked-cards-v2",
+      "easter-hunt-unlocked-cards-v3",
       JSON.stringify(["clue-1"])
     );
 
@@ -84,7 +84,7 @@ describe("Easter Treasure Hunt page", () => {
     expect(
       scopedQueries.queryByPlaceholderText("Enter password")
     ).not.toBeInTheDocument();
-    expect(localStorage.getItem("easter-hunt-unlocked-cards-v2")).toBe(
+    expect(localStorage.getItem("easter-hunt-unlocked-cards-v3")).toBe(
       JSON.stringify(["clue-1"])
     );
 
@@ -117,6 +117,6 @@ describe("Easter Treasure Hunt page", () => {
     expect(
       scopedQueries.getByText("That password is not quite right yet.")
     ).toBeInTheDocument();
-    expect(localStorage.getItem("easter-hunt-unlocked-cards-v2")).toBeNull();
+    expect(localStorage.getItem("easter-hunt-unlocked-cards-v3")).toBeNull();
   });
 });
