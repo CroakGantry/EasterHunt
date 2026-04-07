@@ -118,16 +118,37 @@ function CardFaceLayout({
   );
 }
 
+function parseClueNumber(title: string): string | null {
+  const match = /^Clue\s+(\d+)$/i.exec(title.trim());
+  return match ? match[1] : null;
+}
+
 function CardHeader({ title }: { title: string }) {
+  const clueNumber = parseClueNumber(title);
+
   return (
     <div
       className="flex items-start justify-between gap-4"
       data-testid="card-header-row"
     >
       <div>
-        <h2 className="text-2xl font-semibold text-[#415a78]">{title}</h2>
+        <h2
+          className="text-2xl font-semibold text-[#415a78]"
+          {...(clueNumber ? { "aria-label": title } : {})}
+        >
+          {clueNumber ? <span aria-hidden="true">Clue</span> : title}
+        </h2>
       </div>
-      <div className="h-12 w-12 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.95),rgba(190,220,248,0.92))] shadow-[inset_-4px_-4px_12px_rgba(100,150,200,0.22),inset_4px_4px_12px_rgba(255,255,255,0.95)]" />
+      <div
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.95),rgba(190,220,248,0.92))] shadow-[inset_-4px_-4px_12px_rgba(100,150,200,0.22),inset_4px_4px_12px_rgba(255,255,255,0.95)]"
+        aria-hidden={clueNumber ? true : undefined}
+      >
+        {clueNumber ? (
+          <span className="text-lg font-semibold tabular-nums tracking-tight text-[#415a78]">
+            {clueNumber}
+          </span>
+        ) : null}
+      </div>
     </div>
   );
 }
