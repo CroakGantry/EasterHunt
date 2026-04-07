@@ -32,7 +32,7 @@ export function ClueCard({
       <div className={`card-rotator ${isUnlocked ? "is-unlocked" : ""}`}>
         <div
           aria-hidden={isUnlocked}
-          className="card-face rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(241,235,255,0.95),rgba(219,232,255,0.95))] p-6 backdrop-blur-sm"
+          className="card-face rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(236,244,255,0.96),rgba(223,237,252,0.96))] p-6 backdrop-blur-sm"
         >
           {!isUnlocked ? (
             <CardFaceLayout faceTestId="locked-face-layout" title={clue.title}>
@@ -48,14 +48,14 @@ export function ClueCard({
                     onChange={(event) => {
                       onInputChange(event.target.value);
                     }}
-                    className="w-full rounded-2xl border border-[#d7cff5] bg-white/90 px-4 py-3 text-center text-base text-[#463d6a] outline-none transition focus:border-[#9f8ef0] focus:ring-4 focus:ring-[#c7bef8]/70"
+                    className="w-full rounded-2xl border border-[#c5d9ee] bg-white/90 px-4 py-3 text-center text-base text-[#3d4f66] outline-none transition focus:border-[#6ba3d6] focus:ring-4 focus:ring-[#b8d4f0]/70"
                     placeholder="Enter password"
                     autoComplete="off"
                   />
 
                   <button
                     type="submit"
-                    className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#8c7bd9,#6d5ac1)] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(105,94,156,0.28)] transition hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-[#c7bef8]/70"
+                    className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-[linear-gradient(180deg,#8bbee8,#5a9fd4)] px-4 py-3 text-sm font-semibold text-white shadow-[0_16px_30px_rgba(74,132,188,0.32)] transition hover:brightness-105 focus:outline-none focus:ring-4 focus:ring-[#b8d4f0]/70"
                   >
                     Unlock {clue.title}
                   </button>
@@ -73,7 +73,7 @@ export function ClueCard({
 
         <div
           aria-hidden={!isUnlocked}
-          className="card-face card-face-back flex flex-col rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(241,235,255,0.95),rgba(219,232,255,0.95))] p-6 backdrop-blur-sm"
+          className="card-face card-face-back flex flex-col rounded-[2rem] border border-white/70 bg-[linear-gradient(180deg,rgba(236,244,255,0.96),rgba(223,237,252,0.96))] p-6 backdrop-blur-sm"
         >
           {isUnlocked ? (
             <CardFaceLayout faceTestId="unlocked-face-layout" title={clue.title}>
@@ -125,9 +125,9 @@ function CardHeader({ title }: { title: string }) {
       data-testid="card-header-row"
     >
       <div>
-        <h2 className="text-2xl font-semibold text-[#554a7c]">{title}</h2>
+        <h2 className="text-2xl font-semibold text-[#415a78]">{title}</h2>
       </div>
-      <div className="h-12 w-12 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.95),rgba(212,199,251,0.9))] shadow-[inset_-4px_-4px_12px_rgba(160,137,214,0.24),inset_4px_4px_12px_rgba(255,255,255,0.95)]" />
+      <div className="h-12 w-12 rounded-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.95),rgba(190,220,248,0.92))] shadow-[inset_-4px_-4px_12px_rgba(100,150,200,0.22),inset_4px_4px_12px_rgba(255,255,255,0.95)]" />
     </div>
   );
 }
